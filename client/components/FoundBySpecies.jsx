@@ -9,21 +9,17 @@ function FoundBySpecies(props){
     const catFilter= props.found.filter(item=> item.species === 'cat' )
     const dogFilter= props.found.filter(item=> item.species === 'dog' )
     
-
-return(
-    <React.Fragment>
-        <FoundByCat cats={catFilter}/>
-        <FoundByDog dogs={dogFilter}/>
-    </React.Fragment>
-
-
-    
-)
+if(props.view === 'foundCats'){
+return <FoundByCat cats={catFilter}/>
+} else {
+    return  <FoundByDog dogs={dogFilter}/>
+}
 }
 
 const mapStateToProps = (state) =>{
     return{
-        found: state.foundPets
+        found: state.foundPets,
+        view: state.foundBySpeciesView
     }
 }
 
