@@ -17,12 +17,9 @@ function addLostAnimal(lostAnimal, testDb) {
   return db("lost").insert(lostAnimal);
 }
 
-function addFoundAnimal(species, photo, testDb) {
+function addFoundAnimal(foundAnimal, testDb) {
   const db = testDb || connection;
-  return db("found").insert({
-    species: species,
-    photo: photo
-  });
+  return db("found").insert(foundAnimal);
 }
 
 module.exports = {

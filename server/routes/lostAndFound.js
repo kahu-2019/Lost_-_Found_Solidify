@@ -29,7 +29,19 @@ router.get("/found", (req, res) => {
 router.post("/lost", (req, res) => {
   lostAnimal = req.body;
   db.addLostAnimal(lostAnimal)
-    .then(foundPets => {
+    .then(response => {
+      res.send("successfully added");
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500)({ error: "something went wrong" });
+    });
+});
+
+router.post("/found", (req, res) => {
+  foundAnimal = req.body;
+  db.addFoundAnimal(foundAnimal)
+    .then(response => {
       res.send("successfully added");
     })
     .catch(err => {
