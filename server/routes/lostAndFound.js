@@ -27,27 +27,39 @@ router.get("/found", (req, res) => {
 });
 
 router.post("/lost", (req, res) => {
-  lostAnimal = req.body;
-  db.addLostAnimal(lostAnimal)
-    .then(response => {
-      res.send("successfully added");
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500)({ error: "something went wrong" });
-    });
+  let lostAnimal = req.body;
+
+  db.getUserId(lostAnimal).then(id => {
+    lostAnimal.user_id = id.id;
+    delete lostAnimal["username"];
+
+    db.addLostAnimal(lostAnimal)
+      .then(response => {
+        res.send("successfully added");
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500)({ error: "something went wrong" });
+      });
+  });
 });
 
 router.post("/found", (req, res) => {
-  foundAnimal = req.body;
-  db.addFoundAnimal(foundAnimal)
-    .then(response => {
-      res.send("successfully added");
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500)({ error: "something went wrong" });
-    });
+  let foundAnimal = req.body;
+
+  db.getUserId(foundAnimal).then(id => {
+    foundAnimal.user_id = id.id;
+    delete foundAnimal["username"];
+
+    db.addFoundAnimal(foundAnimal)
+      .then(response => {
+        res.send("successfully added");
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500)({ error: "something went wrong" });
+      });
+  });
 });
 
 module.exports = router;

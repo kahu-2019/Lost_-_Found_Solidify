@@ -12,6 +12,17 @@ function getFoundPets(testDb) {
   return db("found").select();
 }
 
+function getUserId(lostAnimal, testDb) {
+  const db = testDb || connection;
+  // username = lostAnimal.username;
+  username = "symesharr";
+  return db("users")
+    .select()
+    .where("user_name", username)
+    .first();
+  // .then(user => user.id);
+}
+
 function addLostAnimal(lostAnimal, testDb) {
   const db = testDb || connection;
   return db("lost").insert(lostAnimal);
@@ -26,5 +37,6 @@ module.exports = {
   getLostPets,
   getFoundPets,
   addLostAnimal,
-  addFoundAnimal
+  addFoundAnimal,
+  getUserId
 };
