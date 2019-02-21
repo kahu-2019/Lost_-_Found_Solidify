@@ -7,6 +7,7 @@ import Login from './Login'
 import Register from './Register'
 import Nav from './Nav'
 import FoundBySpecies from './FoundBySpecies'
+import LostBySpecies from './LostBySpecies'
 
 
 export function App({auth}) {
@@ -21,7 +22,7 @@ export function App({auth}) {
             </Link>
             <Nav />
           </div>
-          <FoundBySpecies/>
+        
         </div>
 
         <div className=''>
@@ -30,6 +31,9 @@ export function App({auth}) {
           }
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
+          <Route path="/found" component={FoundBySpecies} />
+          <Route path="/lost" component={LostBySpecies} />
+
         </div>
 
       </div>
