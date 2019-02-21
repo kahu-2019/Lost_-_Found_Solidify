@@ -1,10 +1,23 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-function FoundBySpecies(props){
-return(
+import FoundByCat from './FoundByCat'
+import FoundByDog from './FoundByDog'
 
-    <div>foundbyspecies</div>
+function FoundBySpecies(props){
+
+    const catFilter= props.found.filter(item=> item.species === 'cat' )
+    const dogFilter= props.found.filter(item=> item.species === 'dog' )
+    
+
+return(
+    <React.Fragment>
+        <FoundByCat cats={catFilter}/>
+        <FoundByDog dogs={dogFilter}/>
+    </React.Fragment>
+
+
+    
 )
 }
 
@@ -19,5 +32,9 @@ const mapStateToProps = (state) =>{
 //         return true
 //     }
 // }
+
+
+
+
 
 export default connect(mapStateToProps)(FoundBySpecies)
