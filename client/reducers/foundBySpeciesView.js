@@ -1,9 +1,9 @@
 export const NAVIGATE = 'NAVIGATE'
 
-const foundBySpeciesView = (state = 'foundCats', action) => {
+const foundBySpeciesView = (state = 'foundAll', action) => {
   switch (action.type) {
     case NAVIGATE:
-      return action.destination
+      return action.view
     default:
       return state
   }

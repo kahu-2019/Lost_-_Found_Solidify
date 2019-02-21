@@ -1,52 +1,52 @@
-//import React, { Component } from 'react'
+import React, { Component } from 'react'
 import React from "react"
-import {connect} from 'react-redux'
-//import {getLostPetsAction} from "../actions/receiveLostPets"
+import { connect } from 'react-redux'
+import {getLostPetsAction} from "../actions/receiveLostPets"
 
-function LostPets(props){
-// constructor(props){
-//      super(props);
-//  }
-// componentDidMount = () => {
-//     this.props.getLostPets();
-// }
+export class LostPets extends Component {
+constructor(props){
+     super(props);
+ }
+componentDidMount = () => {
+    this.props.getLostPets();
+}
 
-// getLostPets = () => {
-//     this.props.getLostPets();
-// }
+getLostPets = () => {
+    this.props.getLostPets();
+}
 
- 
+getLostPets = () => {
+    this.props.getLostPets();
+}
+
+  render() {
     return (
       <div>
-       {props.lostPets.map(lostPet=>{
+       {this.props.state.lostPetsData.map(lostPet=>{
          return <div key={lostPet.id}>
          <img src={lostPet.photo} /><br/>
          Name:{lostPet.name}
          Species:{lostPet.species}
          </div>
        })}
-       
       </div>
     );
   }
+}
 
-
-const mapStateToProps = (state)=> {
+function  mapStateToProps (state) {
   return {
-    lostPets: state.lostPets
+    state: state.LostPets
   }
 }
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//       getLostPets:()=>dispatch(getLostPetsAction())
-//   }
-// }
+const mapDispatchToProps = dispatch => {
+  return {
+      getLostPets:()=>dispatch(getLostPetsAction())
+  }
+}
 
 export default connect(
-    mapStateToProps
- //   , mapDispatchToProps
-    )
+    mapStateToProps, 
+    mapDispatchToProps)
     (LostPets);
-
-    //export default connect(mapStateToProps)(LostPets)

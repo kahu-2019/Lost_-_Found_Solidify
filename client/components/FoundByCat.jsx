@@ -2,7 +2,14 @@ import React from 'react'
 
 function FoundByCat(props){
     return(
-        <p>foundbycat</p>
+        props.cats.map((cat,i)=>{
+            return (
+                <div key={i}>
+                    <img src={cat.photo}/>
+                    <p>{cat.species}</p>
+                </div>
+            )
+        })
     )
 }
 

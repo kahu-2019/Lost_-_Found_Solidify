@@ -1,7 +1,7 @@
 import React from 'react'
 import {HashRouter as Router, Route, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import LostPets from './LostPets'
+
 
 import Login from './Login'
 import Register from './Register'
@@ -22,7 +22,6 @@ export function App({auth}) {
             <Nav />
           </div>
           <FoundBySpecies/>
-          <LostPets/>
         </div>
 
         <div className=''>
