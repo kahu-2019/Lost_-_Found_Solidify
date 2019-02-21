@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import Login from './Login'
 import Register from './Register'
 import Nav from './Nav'
+import FoundBySpecies from './FoundBySpecies'
 
 
 export function App({auth}) {
@@ -19,6 +20,7 @@ export function App({auth}) {
             </Link>
             <Nav />
           </div>
+          <FoundBySpecies/>
         </div>
 
         <div className=''>
