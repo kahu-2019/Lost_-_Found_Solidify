@@ -6,8 +6,6 @@ import {connect} from 'react-redux'
 import Login from './Login'
 import Register from './Register'
 import Nav from './Nav'
-import FoundBySpecies from './FoundBySpecies'
-import LostBySpecies from './LostBySpecies'
 import PostLostTest from './PostLostTest'
 import LostSearch from './LostSearch'
 
@@ -35,7 +33,6 @@ export function App({auth}) {
           <Route path="/register" component={Register} />
           {/* <Route path="/found" component={FoundBySpecies} /> */}
           <Route path="/lost" component={LostSearch} />
-          <Route path="/post-lost" component={PostLostTest} />
         </div>
 
       </div>

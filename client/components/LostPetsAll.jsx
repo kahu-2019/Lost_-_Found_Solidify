@@ -2,15 +2,18 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getLostPets } from "../actions/receiveLostPets";
 
-export class LostPets extends Component {
+export class LostPetsALL extends Component {
   constructor(props) {
     super(props);
   }
+  componentDidMount = () => {
+    this.props.dispatch(getLostPets());
+  };
 
   render() {
     return (
       <div>
-        {this.props.lostPetsData.map(lostPet => {
+        {this.props.state.lostPetsData.map(lostPet => {
           return (
             <div key={lostPet.id}>
               <img src={lostPet.photo} />
@@ -26,4 +29,10 @@ export class LostPets extends Component {
   }
 }
 
-export default LostPets
+function mapStateToProps(state) {
+  return {
+    state: state.lostPets
+  };
+}
+
+export default connect(mapStateToProps)(LostPetsALL);
