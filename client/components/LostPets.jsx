@@ -6,14 +6,14 @@ export class LostPets extends Component {
   constructor(props) {
     super(props);
   }
-  componentDidMount = () => {
-    this.props.dispatch(getLostPets());
-  };
+  // componentDidMount = () => {
+  //   this.props.dispatch(getLostPets());
+  // };
 
   render() {
     return (
       <div>
-        {this.props.state.lostPetsData.map(lostPet => {
+        {this.props.lostPetsData.map(lostPet => {
           return (
             <div key={lostPet.id}>
               <img src={lostPet.photo} />
@@ -29,10 +29,10 @@ export class LostPets extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    state: state.lostPets
-  };
-}
+// function mapStateToProps(state) {
+//   return {
+//     state: state.lostPets
+//   };
+// }
 
-export default connect(mapStateToProps)(LostPets);
+export default LostPets

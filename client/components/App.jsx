@@ -9,6 +9,7 @@ import Nav from './Nav'
 import FoundBySpecies from './FoundBySpecies'
 import LostBySpecies from './LostBySpecies'
 import PostLostTest from './PostLostTest'
+import LostSearch from './LostSearch'
 
 
 export function App({auth}) {
@@ -32,8 +33,8 @@ export function App({auth}) {
           }
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          <Route path="/found" component={FoundBySpecies} />
-          <Route path="/lost" component={LostBySpecies} />
+          {/* <Route path="/found" component={FoundBySpecies} /> */}
+          <Route path="/lost" component={LostSearch} />
           <Route path="/post-lost" component={PostLostTest} />
         </div>
 
