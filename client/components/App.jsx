@@ -7,6 +7,8 @@ import Register from "./Register";
 import Nav from "./Nav";
 import FoundPets from "./FoundPets";
 import LostPets from "./LostPets";
+import FoundForm from "./FoundForm";
+import LostForm from "./LostForm";
 
 export function App({ auth }) {
   return (
@@ -27,6 +29,8 @@ export function App({ auth }) {
           <Route path="/register" component={Register} />
           <Route path="/found" component={FoundPets} />
           <Route path="/lost" component={LostPets} />
+          <Route path="/add-lost-pet" component={LostForm} />
+          <Route path="/add-found-pet" component={FoundForm} />
         </div>
       </div>
     </Router>
