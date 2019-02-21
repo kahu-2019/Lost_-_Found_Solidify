@@ -7,11 +7,11 @@ const initialState= [
 ]
 
 
-const foundPets = (state =initialState, action =>{
+const foundPets = (state =initialState, action) =>{
     switch (action.type){
         default:
         return state
     }
-})
+}
 
 export default foundPets

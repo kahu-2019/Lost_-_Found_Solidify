@@ -7,11 +7,11 @@ const initialState= [
     {id:1, name: 'uncle', species: 'cat', photo: './images/sample.png', user_id:3}
 ]
 
-const lostPets = (state =initialState, action =>{
+const lostPets = (state = initialState, action) =>{
     switch (action.type){
         default:
         return state
     }
-})
+}
 
 export default lostPets
