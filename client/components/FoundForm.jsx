@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { foundPet } from "../api/addPet";
 
 class FoundForm extends Component {
   constructor(props) {
@@ -24,6 +25,8 @@ class FoundForm extends Component {
       species: this.state.species,
       photo: this.state.photo
     };
+
+    foundPet(post);
   }
   render() {
     return (

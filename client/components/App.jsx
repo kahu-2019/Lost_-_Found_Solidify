@@ -6,6 +6,7 @@ import Login from "./Login";
 import Register from "./Register";
 import Nav from "./Nav";
 import FoundForm from "./FoundForm";
+import LostForm from "./LostForm";
 
 export function App({ auth }) {
   return (
@@ -17,7 +18,6 @@ export function App({ auth }) {
               <h1 className="title is-1">Lost and Found</h1>
             </Link>
             <Nav />
-            <FoundForm />
           </div>
         </div>
 
@@ -25,6 +25,8 @@ export function App({ auth }) {
           {!auth.isAuthenticated && <Route exact path="/" component={Login} />}
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
+          <Route path="/add-lost-pet" component={LostForm} />
+          <Route path="/add-found-pet" component={FoundForm} />
         </div>
       </div>
     </Router>

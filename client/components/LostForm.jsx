@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { lostPet } from "../api/addPet";
 
 class LostForm extends Component {
   constructor(props) {
@@ -9,7 +11,7 @@ class LostForm extends Component {
       species: "",
       photo: ""
     };
-    this.onChange = this.onchange.bind(this);
+    this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
   onChange(e) {
@@ -17,29 +19,21 @@ class LostForm extends Component {
   }
 
   onSubmit(e) {
-    e.preventDefult();
+    e.preventDefault();
 
     const post = {
-      username: this.state.username,
+      username: this.props.auth.user.user_name,
       name: this.state.name,
       species: this.state.species,
       photo: this.state.photo
     };
+    console.log(post);
+    lostPet(post);
   }
   render() {
     return (
       <React.Fragment>
         <form onSubmit={this.onSubmit}>
-          <div>
-            <label>User-Name:</label> <br />
-            <input
-              type="text"
-              name="username"
-              onChange={this.onChange}
-              value={this.state.name}
-            />
-          </div>
-          <br />
           <div>
             <label>Pet-Name:</label> <br />
             <input
@@ -53,7 +47,7 @@ class LostForm extends Component {
           <div>
             <label>Species:</label> <br />
             <textarea
-              name="speicies"
+              name="species"
               onChange={this.onChange}
               value={this.state.species}
             />
@@ -68,8 +62,8 @@ class LostForm extends Component {
               value={this.state.photo}
             />
           </div>
-          <div class="control">
-            <button class="button is-primary" type="submit">
+          <div className="control">
+            <button className="button is-primary" type="submit">
               Submit
             </button>
           </div>
@@ -78,4 +72,11 @@ class LostForm extends Component {
     );
   }
 }
-export default LostForm;
+
+const mapStateToProps = state => {
+  return {
+    auth: state.auth
+  };
+};
+
+export default connect(mapStateToProps)(LostForm);
