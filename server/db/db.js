@@ -12,6 +12,7 @@ function getFoundPets(testDb) {
   return db("found").select();
 }
 
+<<<<<<< HEAD
 function addLostAnimal(name, species, photo, testDb) {
   const db = testDb || connection;
   return db("lost").insert({
@@ -28,6 +29,18 @@ function addFoundAnimal(species, photo, testDb) {
     photo: photo
   });
 }
+=======
+function addLostAnimal(lostAnimal, testDb) {
+  const db = testDb || connection;
+  return db("lost").insert(lostAnimal);
+}
+
+function addFoundAnimal(foundAnimal, testDb) {
+  const db = testDb || connection;
+  return db("found").insert(foundAnimal);
+}
+
+>>>>>>> 1468fd718dcd7e298ed8eda6b3e2c9544ead61d4
 module.exports = {
   getLostPets,
   getFoundPets,
