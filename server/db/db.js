@@ -1,36 +1,36 @@
-const connection = require('knex')(config)
+const connection = require("./connection");
 
-function getLostPets (testDb) {
-    const db = testDb || connection
-  
-    return db('lost').select()
-      
-  }
+function getLostPets(testDb) {
+  const db = testDb || connection;
 
-  function getFoundPets (testDb) {
-      const db = testDb || connection
+  return db("lost").select();
+}
 
-      return db('found').select()
-  }
+function getFoundPets(testDb) {
+  const db = testDb || connection;
 
-  function addLostAnimal (name,species,photo,testDb) {
-      const db= testDb || connection
-     return db('lost').insert(
-         {
-          name: name,
-          species: species,
-          photo: photo   
-        }
-     )
-  }
+  return db("found").select();
+}
 
-  function addFoundAnimal (species,photo,testDb) {
-    const db= testDb || connection
-    return db('found').insert(
-        {
-          species:species,
-          photo:photo
+function addLostAnimal(name, species, photo, testDb) {
+  const db = testDb || connection;
+  return db("lost").insert({
+    name: name,
+    species: species,
+    photo: photo
+  });
+}
 
-        }
-    )
-  }
+function addFoundAnimal(species, photo, testDb) {
+  const db = testDb || connection;
+  return db("found").insert({
+    species: species,
+    photo: photo
+  });
+}
+module.exports = {
+  getLostPets,
+  getFoundPets,
+  addLostAnimal,
+  addFoundAnimal
+};

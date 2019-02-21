@@ -5,9 +5,9 @@ const initialState = {
 const foundPets = (state = initialState, action) => {
   switch (action.type) {
     case "RECEIVE_FOUND_PETS":
-      return action.foundPets;
-    default:
       return { ...state, foundPetsData: action.foundPets };
+    default:
+      return state;
   }
 };
 
