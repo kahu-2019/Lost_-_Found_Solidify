@@ -12,7 +12,6 @@ export class FoundPets extends Component {
   }
 
   render() {
-    console.log("FoundPets.jsx render this.props:", this.props);
     return (
       <div>
         {this.props.state.foundPetsData.map(foundPet => {
