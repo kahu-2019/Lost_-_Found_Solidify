@@ -15,4 +15,15 @@ router.get("/lost", (req, res) => {
     });
 });
 
+router.get("/found", (req, res) => {
+  db.getFoundPets()
+    .then(foundPets => {
+      res.json(foundPets);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500)({ error: "something went wrong" });
+    });
+});
+
 module.exports = router;
