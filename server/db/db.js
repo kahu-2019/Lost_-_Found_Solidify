@@ -14,8 +14,8 @@ function getFoundPets(testDb) {
 
 function getUserId(lostAnimal, testDb) {
   const db = testDb || connection;
-  // username = lostAnimal.username;
-  username = "symesharr";
+  username = lostAnimal.username;
+
   return db("users")
     .select()
     .where("user_name", username)
