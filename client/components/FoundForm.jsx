@@ -1,13 +1,15 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
-class LostForm extends Component {
+class FoundForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      username: "",
       species: "",
       photo: ""
     };
-    this.onChange = this.onchange.bind(this);
+    this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
   onChange(e) {
@@ -15,9 +17,10 @@ class LostForm extends Component {
   }
 
   onSubmit(e) {
-    e.preventDefult();
+    e.preventDefault();
 
     const post = {
+      username: this.props.auth.user.user_name,
       species: this.state.species,
       photo: this.state.photo
     };
@@ -25,11 +28,11 @@ class LostForm extends Component {
   render() {
     return (
       <React.Fragment>
-        <form>
+        <form onSubmit={this.onSubmit}>
           <div>
             <label>Species:</label> <br />
             <textarea
-              name="speicies"
+              name="species"
               onChange={this.onChange}
               value={this.state.species}
             />
@@ -43,8 +46,8 @@ class LostForm extends Component {
               value={this.state.photo}
             />
           </div>
-          <div class="control">
-            <button class="button is-primary" type="submit">
+          <div className="control">
+            <button className="button is-primary" type="submit">
               Submit
             </button>
           </div>
@@ -53,4 +56,11 @@ class LostForm extends Component {
     );
   }
 }
-export default FoundForm;
+
+const mapStateToProps = state => {
+  return {
+    auth: state.auth
+  };
+};
+
+export default connect(mapStateToProps)(FoundForm);
