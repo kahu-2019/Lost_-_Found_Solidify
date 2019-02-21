@@ -12,13 +12,9 @@ function getFoundPets(testDb) {
   return db("found").select();
 }
 
-function addLostAnimal(name, species, photo, testDb) {
+function addLostAnimal(lostAnimal, testDb) {
   const db = testDb || connection;
-  return db("lost").insert({
-    name: name,
-    species: species,
-    photo: photo
-  });
+  return db("lost").insert(lostAnimal);
 }
 
 function addFoundAnimal(species, photo, testDb) {

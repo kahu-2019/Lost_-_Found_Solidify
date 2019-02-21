@@ -26,4 +26,16 @@ router.get("/found", (req, res) => {
     });
 });
 
+router.post("/lost", (req, res) => {
+  lostAnimal = req.body;
+  db.addLostAnimal(lostAnimal)
+    .then(foundPets => {
+      res.send("successfully added");
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500)({ error: "something went wrong" });
+    });
+});
+
 module.exports = router;
