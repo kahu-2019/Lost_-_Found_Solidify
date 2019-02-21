@@ -1,90 +1,59 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { logoutUser } from "../actions/logout";
+import React from 'react'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
+import {logoutUser} from '../actions/logout'
 
 class Nav extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       showBurger: false
-    };
-    this.toggleBurger = this.toggleBurger.bind(this);
+    }
+    this.toggleBurger = this.toggleBurger.bind(this)
   }
   toggleBurger() {
-    this.setState({ showBurger: !this.state.showBurger });
+    this.setState({showBurger: !this.state.showBurger})
   }
   render() {
-    const { auth, logout } = this.props;
-    const { showBurger } = this.state;
-    return (
-      <nav className="navbar">
-        <div className="container">
-          <div className="navbar-brand">
-            <span
-              onClick={this.toggleBurger}
-              className={`navbar-burger burger ${
-                showBurger ? "is-active" : ""
-              }`}
-              data-target="navbarMenuHeroA"
-            >
-              <span />
-              <span />
-              <span />
-            </span>
-          </div>
-          <div
-            id="navbarMenuHeroA"
-            className={`navbar-menu ${showBurger ? "is-active" : ""}`}
-          >
-            <div className="navbar-end">
-              {auth.isAuthenticated ? (
-                <Link
-                  to="/"
-                  className="navbar-item is-large"
-                  onClick={() => logout()}
-                >
-                  Logout
-                </Link>
-              ) : (
-                [
-                  <Link
-                    key="login"
-                    onClick={this.toggleBurger}
-                    className="navbar-item is-large"
-                    to="/login"
-                  >
-                    Login
-                  </Link>,
-                  <Link
-                    key="register"
-                    onClick={this.toggleBurger}
-                    className="navbar-item"
-                    to="/register"
-                  >
-                    Register
-                  </Link>
-                ]
-              )}
-            </div>
+    const {auth, logout} = this.props
+    const {showBurger} = this.state
+    return <nav className="navbar">
+      <div className="container">
+        <div className="navbar-brand">
+          <span onClick={this.toggleBurger} className={`navbar-burger burger ${showBurger ? 'is-active': ''}`} data-target="navbarMenuHeroA">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroA" className={`navbar-menu ${showBurger ? "is-active" : ''}`}>
+          <div className="navbar-end">
+            {auth.isAuthenticated
+              ? <Link to='/' className="navbar-item is-large" onClick={() => logout()}>Logout</Link>
+              : [
+                <Link key='login'onClick={this.toggleBurger} className="navbar-item is-large" to='/login'>Login</Link>,
+                <Link key='register'onClick={this.toggleBurger} className="navbar-item" to='/register'>Register</Link>,
+                <Link key='foundPets'onClick={this.toggleBurger} className="navbar-item" to='/found'>Found Pets</Link>,
+                <Link key='lostPets'onClick={this.toggleBurger} className="navbar-item" to='/lost'>Lost Pets</Link>,
+                <Link key='addLostPet'onClick={this.toggleBurger} className="navbar-item" to='/add-lost-pet'>Add Lost Pet</Link>,
+                <Link key='addFoundPet'onClick={this.toggleBurger} className="navbar-item" to='/add-found-pet'>Add Found Pet</Link>,
+              ]
+            }
           </div>
         </div>
-      </nav>
-    );
+      </div>
+    </nav>
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch(logoutUser())
-  };
-};
+  }
+}
 
-const mapStateToProps = ({ auth }) => {
-  return { auth };
-};
+const mapStateToProps = ({auth}) => {
+  return {auth}
+}
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Nav);
+export default connect(mapStateToProps, mapDispatchToProps)(Nav)
