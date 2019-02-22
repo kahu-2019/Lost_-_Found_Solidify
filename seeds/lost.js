@@ -9,21 +9,21 @@ exports.seed = function(knex, Promise) {
           id: 1,
           name: "bob",
           species: "cat",
-          photo: "/images/puppy4",
+          photo: "/images/puppy4.jpg",
           user_id: 1
         },
         {
           id: 2,
           name: "alice",
           species: "dog",
-          photo: "/images/puppy5",
+          photo: "/images/puppy5.png",
           user_id: 2
         },
         {
           id: 3,
           name: "worm",
           species: "dog",
-          photo: "/images/puppy6",
+          photo: "/images/puppy6.jpg",
           user_id: 3
         }
       ]);
