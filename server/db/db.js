@@ -3,13 +3,13 @@ const connection = require("./connection");
 function getLostPets(testDb) {
   const db = testDb || connection;
 
-  return db("lost").select();
+  return db("lost").join('users','users.id','lost.user_id').select('lost.*','user_name','email_address','contact_details');
 }
 
 function getFoundPets(testDb) {
   const db = testDb || connection;
 
-  return db("found").select();
+  return db("found").join('users','users.id','found.user_id').select('found.*','user_name','email_address','contact_details');
 }
 
 function getUserId(lostAnimal, testDb) {

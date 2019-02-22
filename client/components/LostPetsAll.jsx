@@ -21,6 +21,8 @@ export class LostPetsALL extends Component {
               Name:{lostPet.name}
               <br />
               Species:{lostPet.species}
+              <p>User: {lostPet.user_name}</p>
+              <p>User email: {lostPet.email_address}</p>
             </div>
           );
         })}
