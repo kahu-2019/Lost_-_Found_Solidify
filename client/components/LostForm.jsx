@@ -6,10 +6,10 @@ class LostForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      username: "",
       name: "",
       species: "",
-      photo: "",
-      username: ""
+      photo: ""
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -22,11 +22,10 @@ class LostForm extends Component {
     e.preventDefault();
 
     const post = {
+      username: this.props.auth.user.user_name,
       name: this.state.name,
       species: this.state.species,
-      photo: this.state.photo,
-      username: this.props.auth.user.user_name,
-      user_id: null
+      photo: this.state.photo
     };
     console.log(post);
     lostPet(post);
@@ -57,8 +56,7 @@ class LostForm extends Component {
           <br />
           <div>
             <label>Photo:</label> <br />
-            <input
-              type="file"
+            <textarea
               name="photo"
               onChange={this.onChange}
               value={this.state.photo}
