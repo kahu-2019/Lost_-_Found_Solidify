@@ -8,21 +8,21 @@ exports.seed = function(knex, Promise) {
         {
           id: 1,
           name: "bob",
-          species: "labrador",
+          species: "cat",
           photo: "/images/puppy4",
           user_id: 1
         },
         {
           id: 2,
           name: "alice",
-          species: "tabby",
+          species: "dog",
           photo: "/images/puppy5",
           user_id: 2
         },
         {
           id: 3,
           name: "worm",
-          species: "pointer",
+          species: "dog",
           photo: "/images/puppy6",
           user_id: 3
         }
