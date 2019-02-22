@@ -41,13 +41,6 @@ class Nav extends React.Component {
               {auth.isAuthenticated
                 ? [
                     <Link
-                      to="/"
-                      className="navbar-item is-large"
-                      onClick={() => logout()}
-                    >
-                      Logout
-                    </Link>,
-                    <Link
                       key="addLostPet"
                       onClick={this.toggleBurger}
                       className="navbar-item"
@@ -78,6 +71,13 @@ class Nav extends React.Component {
                       to="/lost"
                     >
                       Lost Pets
+                    </Link>,
+                    <Link
+                      to="/"
+                      className="navbar-item is-large"
+                      onClick={() => logout()}
+                    >
+                      Logout
                     </Link>
                   ]
                 : [

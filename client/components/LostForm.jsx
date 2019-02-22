@@ -57,7 +57,8 @@ class LostForm extends Component {
           <br />
           <div>
             <label>Photo:</label> <br />
-            <textarea
+            <input
+              type="file"
               name="photo"
               onChange={this.onChange}
               value={this.state.photo}
