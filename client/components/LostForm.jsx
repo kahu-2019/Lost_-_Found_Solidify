@@ -26,9 +26,9 @@ class LostForm extends Component {
       species: this.state.species,
       photo: this.state.photo,
       username: this.props.auth.user.user_name,
-      user_id:null
+      user_id: null
     };
-    console.log(post)
+    console.log(post);
     lostPet(post);
   }
   render() {
