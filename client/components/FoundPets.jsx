@@ -18,6 +18,8 @@ export class FoundPets extends Component {
               Name:{foundPet.name}
               <br />
               Species:{foundPet.species}
+              <p>User: {foundPet.user_name}</p>
+              <p>User email: {foundPet.email_address}</p>
             </div>
           );
         })}

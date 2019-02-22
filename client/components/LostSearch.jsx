@@ -22,6 +22,7 @@ export class LostSearch extends Component {
 
   render() {
       const animalFilter= this.props.lostPets.lostPetsData.filter(item=> item.species === this.state.species )
+      
      if(this.state.species.length > 0){
       return (
         <div>

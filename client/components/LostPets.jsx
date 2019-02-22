@@ -8,9 +8,11 @@ export class LostPets extends Component {
   }
 
   render() {
+console.log(this.props.lostPetsData)
     return (
       <div>
         {this.props.lostPetsData.map(lostPet => {
+          console.log(lostPet)
           return (
             <div key={lostPet.id}>
               <img src={lostPet.photo} />
@@ -18,6 +20,8 @@ export class LostPets extends Component {
               Name:{lostPet.name}
               <br />
               Species:{lostPet.species}
+              <p>User: {lostPet.user_name}</p>
+              <p>User email: {lostPet.email_address}</p>
             </div>
           );
         })}
