@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import Login from "./Login";
 import Register from "./Register";
 import Nav from "./Nav";
-import FoundPets from "./FoundPets";
+import FoundSearch from "./FoundSearch";
 import FoundForm from "./FoundForm";
 import LostForm from "./LostForm";
 import LostSearch from './LostSearch'
@@ -27,7 +27,7 @@ export function App({ auth }) {
           {!auth.isAuthenticated && <Route exact path="/" component={Login} />}
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          <Route path="/found" component={FoundPets} />
+          <Route path="/found" component={FoundSearch} />
           <Route path="/lost" component={LostSearch} />
           <Route path="/add-lost-pet" component={LostForm} />
           <Route path="/add-found-pet" component={FoundForm} />
