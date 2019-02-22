@@ -27,7 +27,7 @@ router.get("/found", (req, res) => {
 });
 
 router.post("/lost", (req, res) => {
-  let lostAnimal = req.body;
+  let lostAnimal = req.body.lostPet;
 
   db.getUserId(lostAnimal).then(id => {
     lostAnimal.user_id = id.id;
@@ -45,7 +45,7 @@ router.post("/lost", (req, res) => {
 });
 
 router.post("/found", (req, res) => {
-  let foundAnimal = req.body;
+  let foundAnimal = req.body.foundPet;
 
   db.getUserId(foundAnimal).then(id => {
     foundAnimal.user_id = id.id;
