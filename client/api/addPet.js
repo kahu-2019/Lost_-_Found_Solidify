@@ -1,8 +1,8 @@
 var request = require("superagent");
 
-export function foundPet() {
+export function foundPet(foundPet) {
   return request
-    .post("/api/lost")
+    .post("/api/found")
     .send({ foundPet })
     .end((err, res) => {
       if (err) {
@@ -13,7 +13,7 @@ export function foundPet() {
     });
 }
 
-export function lostPet() {
+export function lostPet(lostPet) {
   return request
     .post("/api/lost")
     .send({ lostPet })

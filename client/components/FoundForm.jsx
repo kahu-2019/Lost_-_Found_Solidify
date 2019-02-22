@@ -21,9 +21,10 @@ class FoundForm extends Component {
     e.preventDefault();
 
     const post = {
-      username: this.props.auth.user.user_name,
       species: this.state.species,
-      photo: this.state.photo
+      photo: this.state.photo,
+      username: this.props.auth.user.user_name,
+      user_id:null
     };
 
     foundPet(post);
@@ -43,7 +44,8 @@ class FoundForm extends Component {
           <br />
           <div>
             <label>Photo:</label> <br />
-            <textarea
+            <input
+              type="file"
               name="photo"
               onChange={this.onChange}
               value={this.state.photo}
