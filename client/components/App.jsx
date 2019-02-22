@@ -9,6 +9,7 @@ import FoundSearch from "./FoundSearch";
 import FoundForm from "./FoundForm";
 import LostForm from "./LostForm";
 import LostSearch from './LostSearch'
+import FormError from './FormError'
 
 export function App({ auth }) {
   return (
@@ -29,8 +30,14 @@ export function App({ auth }) {
           <Route path="/register" component={Register} />
           <Route path="/found" component={FoundSearch} />
           <Route path="/lost" component={LostSearch} />
-          <Route path="/add-lost-pet" component={LostForm} />
-          <Route path="/add-found-pet" component={FoundForm} />
+
+          {auth.isAuthenticated ? [          
+          <Route path="/add-lost-pet" component={LostForm} />,
+          <Route path="/add-found-pet" component={FoundForm} />]:
+          [<Route path="/add-lost-pet" component={FormError} />,
+          <Route path="/add-found-pet" component={FormError} />]
+        }
+
         </div>
       </div>
     </Router>
