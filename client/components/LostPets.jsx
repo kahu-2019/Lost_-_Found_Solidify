@@ -4,7 +4,6 @@ function LostPets(props){
     return (
       <div>
         {props.lostPetsData.map(lostPet => {
-          console.log(lostPet)
           return (
             <div key={lostPet.id}>
               <img src={lostPet.photo} />
