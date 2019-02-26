@@ -23,20 +23,14 @@ export function App({ auth }) {
             <Nav />
           </div>
         </div>
-
         <div className="">
           {!auth.isAuthenticated && <Route exact path="/" component={Login} />}
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/found" component={FoundSearch} />
           <Route path="/lost" component={LostSearch} />
-
-          {auth.isAuthenticated ? [          
-          <Route path="/add-lost-pet" component={LostForm} />,
-          <Route path="/add-found-pet" component={FoundForm} />]:
-          [<Route path="/add-lost-pet" component={FormError} />,
-          <Route path="/add-found-pet" component={FormError} />]
-        }
+          <Route path="/add-lost-pet" component={auth.isAuthenticated? LostForm: FormError} />
+          <Route path="/add-found-pet" component={auth.isAuthenticated? FoundForm: FormError} />
 
         </div>
       </div>
